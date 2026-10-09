@@ -6,7 +6,7 @@ alunos = {} # matrícula => Aluno
 cursos = {} # código do curso => Curso
 
 linhas = File.readlines("notas.csv")
-linhas.shift # joga fora a primeira linha (o cabeçalho)
+linhas.shift 
 
 linhas.each do |linha|
   # "100,1,10,80,60,20231" vira ["100", "1", "10", "80", "60", "20231"]
@@ -17,8 +17,8 @@ linhas.each do |linha|
   codigo_curso = codigo_curso.to_i
   nota = Nota.new(valor.to_i, carga_horaria.to_i)
 
-  # ||= só cria o aluno se ele ainda não estiver no hash
-  alunos[matricula] ||= Aluno.new(matricula)
+  # só cria o aluno se ele ainda não estiver no hash
+  alunos[matricula] = alunos[matricula].nil? ? Aluno.new(matricula) : alunos[matricula]
   alunos[matricula].adicionar_nota(nota)
 
   cursos[codigo_curso] ||= Curso.new(codigo_curso)
