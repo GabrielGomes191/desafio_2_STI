@@ -1,7 +1,9 @@
 # o curso tem um código e a lista dos alunos que têm nota nele
 # ele que sabe calcular a média
+
+
 class Curso
-  attr_reader :codigo
+  attr_reader :codigo, :alunos
 
   def initialize(codigo)
     @codigo = codigo
@@ -19,7 +21,6 @@ class Curso
     @alunos.each do |aluno|
       soma += aluno.cr
     end
-
     soma / @alunos.size
   end
 end

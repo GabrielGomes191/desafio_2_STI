@@ -1,7 +1,9 @@
 # aluno tem uma matrícula e uma lista de notas.
 # sabe calcular o próprio CR.
+
+
 class Aluno
-  attr_reader :matricula
+  attr_reader :matricula, :notas
 
   def initialize(matricula)
     @matricula = matricula
